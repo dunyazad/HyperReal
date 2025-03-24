@@ -53,11 +53,54 @@ void libHyperReal::Initialize(ui32 width, ui32 height)
     hyperRealWindow = new HyperRealWindow();
     hyperRealWindow->Initialize(width, height);
 
+    {
+        auto system = new InputSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+    {
+        auto system = new EventSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+    {
+        auto system = new TransformSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+    {
+        auto system = new CameraSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+    {
+        auto system = new RenderSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+    {
+        auto system = new ImmediateRenderSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+    {
+        auto system = new GUIRenderSystem(this, hyperRealWindow);
+        system->Initialize();
+        systems.emplace_back(system);
+    }
+
     /////////glfwSwapInterval(0);  // Disable V-Sync
 }
 
 void libHyperReal::Terminate()
 {
+    for (auto& system : systems)
+    {
+        system->Terminate();
+        delete system;
+    }
+    systems.clear();
+
     if (nullptr != hyperRealWindow)
     {
         delete hyperRealWindow;
@@ -84,7 +127,10 @@ void libHyperReal::Run()
         auto now = Time::Now();
         auto timeDelta = (f32)(Time::Microseconds(lastTime, now)) / 1000.0f;
 
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        for (auto& system : systems)
+        {
+            system->Update(frameNo, timeDelta);
+        }
 
         glfwPollEvents();
 
@@ -93,4 +139,9 @@ void libHyperReal::Run()
         frameNo++;
         lastTime = now;
     }
+}
+
+void libHyperReal::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    GetInstance().DispatchEvent<KeyEvent>(KeyEvent{ (ui32)key, (ui32)scancode, (ui32)action, (ui32)mods });
 }

@@ -1,4 +1,5 @@
 #include <HyperReal/HyperRealWindow.h>
+#include <HyperReal/libHyperReal.h>
 
 HyperRealWindow* HyperRealWindow::s_instance = nullptr;
 
@@ -38,6 +39,8 @@ GLFWwindow* HyperRealWindow::Initialize(ui32 width, ui32 height)
         return nullptr;
     }
 
+    glfwSetFramebufferSizeCallback(window, FrameBufferSizeCallback);
+
     return window;
 }
 
@@ -50,6 +53,8 @@ void HyperRealWindow::FrameBufferSizeCallback(GLFWwindow* window, i32 width, i32
 {
     s_instance->width = width;
     s_instance->height = height;
+
+    libHyperReal::GetInstance().DispatchEvent<FrameBufferResize>(FrameBufferResize{ (ui32)width, (ui32)height });
 
     //////////EventDispatcher::TriggerEvent<FrameBufferResizeEvent>({ width, height });
 }

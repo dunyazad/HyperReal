@@ -96,16 +96,44 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\inc\imgui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\..\inc\imgui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\..\inc\imgui\imgui.cpp" />
+    <ClCompile Include="..\..\inc\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\..\inc\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\..\inc\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\..\inc\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\..\inc\implot\implot.cpp" />
+    <ClCompile Include="..\..\inc\implot\implot_demo.cpp" />
+    <ClCompile Include="..\..\inc\implot\implot_items.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="HyperRealWindow.cpp" />
     <ClCompile Include="libHyperReal.cpp" />
     <ClCompile Include="Monitor.cpp" />
+    <ClCompile Include="Systems\CameraSystem.cpp" />
+    <ClCompile Include="Systems\EventSystem.cpp" />
+    <ClCompile Include="Systems\GUIRenderSystem.cpp" />
+    <ClCompile Include="Systems\ImmediateRenderSystem.cpp" />
+    <ClCompile Include="Systems\InputSystem.cpp" />
+    <ClCompile Include="Systems\RenderSystem.cpp" />
+    <ClCompile Include="Systems\TransformSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\inc\HyperReal\Components\Camera.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Components\Components.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Components\Transform.h" />
     <ClInclude Include="..\..\inc\HyperReal\HyperRealCommon.h" />
     <ClInclude Include="..\..\inc\HyperReal\HyperRealWindow.h" />
     <ClInclude Include="..\..\inc\HyperReal\libHyperReal.h" />
     <ClInclude Include="..\..\inc\HyperReal\Monitor.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\CameraSystem.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\EventSystem.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\GUIRenderSystem.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\ImmediateRenderSystem.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\InputSystem.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\RenderSystem.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\Systems.h" />
+    <ClInclude Include="..\..\inc\HyperReal\Systems\TransformSystem.h" />
     <ClInclude Include="..\..\inc\HyperReal\TypeDefinitions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,6 +9,30 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\Components">
+      <UniqueIdentifier>{bd32cdd4-4134-450f-9315-1e7691a05a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Components">
+      <UniqueIdentifier>{fd0f151a-7c7a-4748-ac86-2028fd4ee969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Systems">
+      <UniqueIdentifier>{a9b9fba1-9b2a-414a-9c35-2531d051b853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Systems">
+      <UniqueIdentifier>{da6a7b62-ddb2-422a-ab55-797ab783f6f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{e50a2cd2-8de9-4c4e-b9c5-1d67ce1bdcf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\imgui">
+      <UniqueIdentifier>{6bfbab31-89b9-4071-8924-60560aa822ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\implot">
+      <UniqueIdentifier>{d64bb150-75ac-4b28-8faf-3af643c4b19c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\imgui\backends">
+      <UniqueIdentifier>{7d223ebb-7951-43ca-acf1-af42a80abd14}</UniqueIdentifier>
+    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -27,6 +51,57 @@
     <ClCompile Include="Monitor.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Systems\GUIRenderSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\ImmediateRenderSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\RenderSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\CameraSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\TransformSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\imgui.cpp">
+      <Filter>imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\imgui_demo.cpp">
+      <Filter>imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\imgui_draw.cpp">
+      <Filter>imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\imgui_tables.cpp">
+      <Filter>imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\imgui_widgets.cpp">
+      <Filter>imgui\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\backends\imgui_impl_glfw.cpp">
+      <Filter>imgui\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\imgui\backends\imgui_impl_opengl3.cpp">
+      <Filter>imgui\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\implot\implot.cpp">
+      <Filter>imgui\implot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\implot\implot_demo.cpp">
+      <Filter>imgui\implot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\inc\implot\implot_items.cpp">
+      <Filter>imgui\implot</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\EventSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Systems\InputSystem.cpp">
+      <Filter>소스 파일\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\inc\HyperReal\libHyperReal.h">
@@ -43,6 +118,39 @@
     </ClInclude>
     <ClInclude Include="..\..\inc\HyperReal\Monitor.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Components\Transform.h">
+      <Filter>헤더 파일\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\GUIRenderSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\ImmediateRenderSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\RenderSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\CameraSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Components\Camera.h">
+      <Filter>헤더 파일\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Components\Components.h">
+      <Filter>헤더 파일\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\TransformSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\Systems.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\EventSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HyperReal\Systems\InputSystem.h">
+      <Filter>헤더 파일\Systems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

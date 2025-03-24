@@ -17,6 +17,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
+#include <any>
 #include <bitset>
 #include <cstddef>
 #include <ctime>
@@ -44,6 +45,9 @@ using namespace std;
 #include <omp.h>
 
 #include <entt/entt.hpp>
+using Registry = entt::registry;
+using Entity = entt::entity;
+using Dispatcher = entt::dispatcher;
 
 //#include <glm/glm.hpp>
 //#include <glm/gtc/matrix_transform.hpp>
@@ -74,11 +78,53 @@ using namespace std;
 #include <imgui/backends/imgui_impl_opengl3.h>
 #include <implot/implot.h>
 
-//#define Feather libFeather::GetStaticInstance()
+#define HyperReal libHyperReal::GetInstance()
 
 //#include <MiniMath.h>
 
 using Entity = entt::entity;
+
+class libHyperReal;
+class HyperRealWindow;
+
+class ISystem
+{
+public:
+    ISystem(libHyperReal* hyperReal, HyperRealWindow* window) : window(window) {}
+    virtual ~ISystem() = default;
+    virtual void Initialize() = 0;
+    virtual void Terminate() = 0;
+    virtual void Update(ui32 frameNo, f32 timeDelta) = 0;
+
+protected:
+    HyperRealWindow* window;
+};
+
+struct KeyEvent
+{
+    ui32 key;
+    ui32 scancode;
+    ui32 action;
+    ui32 mods;
+};
+
+struct MousePositionEvent
+{
+};
+
+struct MouseButtonEvent
+{
+};
+
+struct MouseWheelEvent
+{
+};
+
+struct FrameBufferResize
+{
+    ui32 width;
+    ui32 height;
+};
 
 namespace Time
 {
@@ -91,5 +137,5 @@ namespace Time
     string DateTime();
 }
 
-#define alog(...) printf("\033[38;5;1m\033[48;5;15m(^(OO)^) /V/\033[0m\t" __VA_ARGS__)
-#define alogt(tag, ...) printf("\033[38;5;1m\033[48;5;15m [%d] (^(OO)^) /V/\033[0m\t" tag, __VA_ARGS__)
+#define hrlog(...) printf("\033[38;5;1m\033[48;5;15m(^(OO)^) /V/\033[0m\t" __VA_ARGS__)
+#define hrlogt(tag, ...) printf("\033[38;5;1m\033[48;5;15m [%d] (^(OO)^) /V/\033[0m\t" tag, __VA_ARGS__)

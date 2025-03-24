@@ -1,14 +1,29 @@
 #include <iostream>
 
 #include <HyperReal/libHyperReal.h>
+auto& HR = HyperReal;
 
 int main(int argc, char** argv)
 {
-	libHyperReal::GetInstance().Initialize(1920, 1080);
+	HR.Initialize(1920, 1080);
 
-	libHyperReal::GetInstance().Run();
+	auto appMain = HR.CreateEntity();
 
-	libHyperReal::GetInstance().Terminate();
+	auto camera = HR.CreateEntity();
+	auto& transform = HR.CreateComponent<Transform>(camera);
+
+	HR.RegisterEvent<KeyEvent>(appMain, [&](Entity entity, KeyEvent&& event) {
+			hrlog("Entity : %d, key : %d, scancode : %d, action : %d, mods : %d\n",
+				entity, event.key, event.scancode, event.action, event.mods);
+			if (GLFW_KEY_ESCAPE == event.key)
+			{
+				glfwSetWindowShouldClose(HR.GetHyperRealWindow()->GetGLFWwindow(), true);
+			}
+		});
+
+	HR.Run();
+
+	HR.Terminate();
 
 	return 0;
 }
